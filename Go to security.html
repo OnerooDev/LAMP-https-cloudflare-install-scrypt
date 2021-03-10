@@ -1,0 +1,25 @@
+1. Change ssh port
+nano /etc/ssh/sshd_config
+#port
+#PubkeyAuthentication yes
+#AuthorizedKeysFile %h/.ssh/authorized_keys
+iptables -A INPUT -p tcp -m multiport --dports 3443
+iptables -A INPUT -p tcp --dport 22 DROP
+
+
+
+2. Privat key
+ssh-keygen -t rsa -b 4096
+cd ~/.ssh
+sudo chmod 0700 ~/.ssh/
+cd ~/.ssh
+sudo touch authorized_keys
+sudo chown root:root authorized_keys
+sudo cat id_rsa.pub >> authorized_keys
+sudo chmod 0600 ~/.ssh/authorized_keys
+cat /home/UserName/.ssh/authorized_keys
+service ssh restart
+#nano /etc/ssh/sshd_config
+#PasswordAuthentication no
+
+3.
