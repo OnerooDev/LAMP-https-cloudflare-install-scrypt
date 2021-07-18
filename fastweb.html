@@ -40,7 +40,6 @@ function installQuestions () {
 	read -rp "Key dir phpmdm : " -e -i "$phpkey" phpkey
 
 
-	mkdir /var/www/"$sname"
 	mkdir /home/ubuntu/.ssl
 	
 	sudo apt-get install software-properties-common python-software-properties -y
@@ -49,6 +48,8 @@ function installQuestions () {
 	sudo apt-get upgrade -y
 	sudo apt-get install php php-mbstring php-cli php-curl php-fpm php-mysql libapache2-mod-rpaf build-essential apache2-dev -y
 	sudo apt install apache2 nginx -y
+
+	mkdir /var/www/"$sname"
 
 	
 	
